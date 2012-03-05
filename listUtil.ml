@@ -32,5 +32,9 @@ else
   in List.rev (split0 l n [])
 
 
-
+let create n a = 
+  let rec create0 n accum = match n with
+    | 0 -> accum
+    | _ -> create0 (n-1) (a::accum)
+  in create0 n []
 
