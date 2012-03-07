@@ -1,6 +1,8 @@
 exception Exception of string
 exception Bug
 
+
+
 let tl_nth l n = 
   let rec tl_nth0 n accum = match n, accum with
     | 0, _     -> accum
@@ -37,4 +39,17 @@ let create n a =
     | 0 -> accum
     | _ -> create0 (n-1) (a::accum)
   in create0 n []
+
+let create_step n a step = 
+  let c = General.new_step_counter 0 step
+  in List.map (fun x -> c()) (create n a)
+
+let slice l n0 n1 = 
+  let rec slice0 l i accum = match l with
+    | h::tl when (i>=n0) && (i<n1) -> slice0 tl (i+1) (h::accum)
+    | h::tl                        -> slice0 tl (i+1) accum
+    | []                           -> accum
+  in List.rev (slice0 l 0 [])
+
+
 
