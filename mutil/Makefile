@@ -10,7 +10,7 @@ endif
 
 
 
-MOD-SIG  = mutil_prioQueue.cmi
+MOD-SIG  = mutil_prioQueue.cmi mutil_list.cmi
 
 
 $(LIB):  $(MOD-SIG) $(MOD-IMPL)

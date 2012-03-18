@@ -68,5 +68,18 @@ let string_of_intlist2 intlist =
     | "" -> ""
     | _  -> String.sub rv 1 (len-1)
 
+let topn_passequals l n = 
+  let v = List.nth (List.sort (fun x y -> -compare x y) l) (n-1) in
+  List.sort (fun x y -> -compare x y) (List.filter (fun x -> x >= v) l)
+
+let firstn l n = 
+  let rec firstn0 l n accum = match n with
+    | 0 -> accum
+    | _ -> firstn0 (List.tl l) (n-1) ((List.hd l)::accum)
+  in List.rev (firstn0 l n [])
+
+let topn_strict l n = 
+  let l1 = topn_passequals l n in
+  firstn l1 n
 
 
