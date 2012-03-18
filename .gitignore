@@ -1,5 +1,3 @@
-*.o
+*.cma
 *.cmi
-*.cmx
-*.out
 *.cmo
