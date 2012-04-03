@@ -1,9 +1,9 @@
 OCAMLC = ocamlc
 
-MOD-IMPL = general.cmo listUtil.cmo prioQueue.cmo
-MOD-SIG  = prioQueue.cmi
+MOD-IMPL = mutil_general.cmo mutil_list.cmo mutil_prioQueue.cmo mutil_file.cmo
+MOD-SIG  = mutil_prioQueue.cmi
 
-LIB = fm.cma
+LIB = mutil.cma
 
 build:  $(MOD-SIG) $(MOD-IMPL)
 	$(OCAMLC) -a *.cmo -o $(LIB)

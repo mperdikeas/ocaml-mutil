@@ -1,3 +1,5 @@
+open Mutil_general
+
 exception Exception of string
 exception Bug
 
@@ -41,7 +43,7 @@ let create n a =
   in create0 n []
 
 let create_step n a step = 
-  let c = General.new_step_counter 0 step
+  let c = new_step_counter 0 step
   in List.map (fun x -> c()) (create n a)
 
 let slice l n0 n1 = 
