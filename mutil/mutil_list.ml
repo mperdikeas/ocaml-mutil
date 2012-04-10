@@ -53,5 +53,16 @@ let slice l n0 n1 =
     | []                           -> accum
   in List.rev (slice0 l 0 [])
 
+let string_of_intlist intlist = 
+  let rv = ref "" in
+  List.iter (fun x -> rv := !rv^","^(string_of_int x)) intlist ;
+  let len = String.length (!rv) in
+  String.sub !rv 1 (len -1)
+
+let string_of_intlist2 intlist = 
+  let rv = List.fold_left (fun x y -> x^","^(string_of_int y)) "" intlist in
+  let len = String.length rv in
+  String.sub rv 1 (len-1)
+
 
 

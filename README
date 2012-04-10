@@ -1,2 +1,4 @@
 OCaml foundation modules by Menelaos Perdikeas
+All mudules follow the mutil_<domain> convention
+where 'mutil' stands for "menelaos' utilities"
 (mostly private utility functions - nothing grand)
