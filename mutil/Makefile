@@ -24,13 +24,13 @@ $(MOD-SIG) : %.cmi : %.mli
 	$(OCAMLC) -c $<
 
 deploy: $(LIB)
-	cp $(LIB) ../fm-deploy
+	cp $(LIB) ../mutil-deploy
 
 
 
 .PHONY : clean deploy
 clean :
-	rm -f $(EXE) *.cmo *.cmi *.cma *.cmx *.cmxa
+	rm -f $(EXE) *.cmo *.cmi *.cma *.cmx *.cmxa *.a *.o
 
 clean-deploy:
 	rm -f ../mutil-deploy/*
