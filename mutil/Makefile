@@ -13,7 +13,6 @@ endif
 MOD-SIG  = mutil_prioQueue.cmi
 
 
-
 $(LIB):  $(MOD-SIG) $(MOD-IMPL)
 	$(OCAMLC) -a $(MOD-IMPL) -o $(LIB)
 
@@ -24,11 +23,14 @@ $(MOD-SIG) : %.cmi : %.mli
 	$(OCAMLC) -c $<
 
 deploy: $(LIB)
-	cp $(LIB) ../mutil-deploy
+	@cp $(LIB) ../mutil-deploy
+	@cp *.cmi  ../mutil-deploy
+	@if [ -f mutil.a ] ;then cp mutil.a ../mutil-deploy; fi
 
 
 
 .PHONY : clean deploy
+
 clean :
 	rm -f $(EXE) *.cmo *.cmi *.cma *.cmx *.cmxa *.a *.o
 
